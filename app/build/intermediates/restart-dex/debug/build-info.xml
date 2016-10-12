@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    api-level="24"
+    density="420dpi"
+    format="8"
+    plugin-version="2.2.0"
+    timestamp="329814954962011"
+    token="6513483472961473634"
+    verifier="COMPATIBLE" >
+
+    <task
+        name="javac"
+        duration="188" />
+    <task
+        name="instant-run-dex"
+        duration="607" />
+    <task
+        name="instant-run-transform"
+        duration="24" />
+    <task
+        name="verifier"
+        duration="3" />
+
+    <artifact
+        location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
+
+    <build
+        timestamp="329657202522738"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="329713410602249"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\builds\debug\329713410602249\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="329801949163425"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\builds\debug\329801949163425\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="329814954962011"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+
+</instant-run>
