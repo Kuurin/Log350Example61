@@ -1,4 +1,4 @@
-#Wed Oct 12 16:19:42 EDT 2016
+#Wed Oct 12 18:35:12 EDT 2016
 base.0=C\:\\Users\\Owner\\Documents\\Vi\\Study\\GTI350-02\\Log350Example61\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_afba3c6d2672cff0f5b9c35dfeb5d8fd4322f017
 renamed.1=classes.dex
 renamed.0=classes2.dex

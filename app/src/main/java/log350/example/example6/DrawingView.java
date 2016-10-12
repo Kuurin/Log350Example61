@@ -11,6 +11,7 @@ import android.graphics.Canvas;
 //import android.graphics.Path;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -185,8 +186,10 @@ public class DrawingView extends View {
 	// This is only used when currentMode==MODE_SHAPE_MANIPULATION, otherwise it is equal to -1
 	int indexOfShapeBeingManipulated = -1;
 
+	int indexOfShapeClicked = -1;
+
 	MyButton lassoButton = new MyButton( "Lasso", 10, 70, 140, 140 );
-	MyButton eraseButton = new MyButton( "Effacer", 10+140*6+70, 70, 140, 140 );
+	MyButton eraseButton = new MyButton( "Effacer", 10, 70+140+30, 140, 140 );
 	
 	OnTouchListener touchListener;
 	
@@ -257,16 +260,8 @@ public class DrawingView extends View {
 
 		gw.setCoordinateSystemToPixels();
 
-
 		eraseButton.draw(gw,currentMode == MODE_ERASE );
 
-		if ( currentMode == MODE_ERASE) {
-			MyCursor lassoCursor = cursorContainer.getCursorByType( MyCursor.TYPE_DRAGGING, 0 );
-			if ( lassoCursor != null ) {
-				gw.setColor(1.0f,0.0f,0.0f,0.5f);
-				gw.fillPolygon( lassoCursor.getPositions() );
-			}
-		}
 		lassoButton.draw( gw, currentMode == MODE_LASSO );
 
 		if ( currentMode == MODE_LASSO ) {
@@ -356,41 +351,6 @@ public class DrawingView extends View {
 					
 					switch ( currentMode ) {
 
-						case MODE_ERASE : //MODIFY TO ERASE
-							if ( type == MotionEvent.ACTION_DOWN ) {
-								if ( cursorContainer.getNumCursorsOfGivenType(MyCursor.TYPE_DRAGGING) == 1 )
-									// there's already a finger dragging out the lasso
-									cursor.setType(MyCursor.TYPE_IGNORE);
-								else
-									cursor.setType(MyCursor.TYPE_DRAGGING);
-							}
-							else if ( type == MotionEvent.ACTION_MOVE ) {
-								// no further updating necessary here
-							}
-							else if ( type == MotionEvent.ACTION_UP ) {
-								if ( cursor.getType() == MyCursor.TYPE_DRAGGING ) {
-									// complete a lasso selection
-									selectedShapes.clear();
-
-									// Need to transform the positions of the cursor from pixels to world space coordinates.
-									// We will store the world space coordinates in the following data structure.
-									ArrayList< Point2D > lassoPolygonPoints = new ArrayList< Point2D >();
-									for ( Point2D p : cursor.getPositions() )
-										lassoPolygonPoints.add( gw.convertPixelsToWorldSpaceUnits( p ) );
-
-									for ( Shape s : shapeContainer.shapes ) {
-										if ( s.isContainedInLassoPolygon( lassoPolygonPoints ) ) {
-											selectedShapes.add( s );
-										}
-									}
-								}
-								cursorContainer.removeCursorByIndex( cursorIndex );
-								if ( cursorContainer.getNumCursors() == 0 ) {
-									currentMode = MODE_NEUTRAL;
-								}
-							}
-							break;
-
 					case MODE_NEUTRAL :
 						if ( cursorContainer.getNumCursors() == 1 && type == MotionEvent.ACTION_DOWN ) {
 							Point2D p_pixels = new Point2D(x,y);
@@ -408,7 +368,6 @@ public class DrawingView extends View {
 								currentMode = MODE_SHAPE_MANIPULATION;
 								cursor.setType( MyCursor.TYPE_DRAGGING );
 							}
-
 							else {
 								currentMode = MODE_CAMERA_MANIPULATION;
 								cursor.setType( MyCursor.TYPE_DRAGGING );
@@ -489,6 +448,27 @@ public class DrawingView extends View {
 							}
 						}
 						break;
+
+						case MODE_ERASE :
+							if ( cursorContainer.getNumCursors() == 2 && type == MotionEvent.ACTION_DOWN) {
+								Point2D p_pixels = new Point2D(x,y);
+								Point2D p_world = gw.convertPixelsToWorldSpaceUnits( p_pixels );
+								indexOfShapeClicked = shapeContainer.indexOfShapeContainingGivenPoint( p_world );
+								if(indexOfShapeClicked != -1){
+									shapeContainer.deleteShape(indexOfShapeClicked);
+								}
+								if (selectedShapes.size() != 0){
+									selectedShapes.remove(indexOfShapeClicked);
+								}
+							}
+							else if ( type == MotionEvent.ACTION_UP ) {
+								cursorContainer.removeCursorByIndex( cursorIndex );
+								if ( cursorContainer.getNumCursors() == 0 ) {
+									currentMode = MODE_NEUTRAL;
+									indexOfShapeClicked = -1;
+								}
+							}
+							break;
 
 					}
 

@@ -4,54 +4,40 @@
     density="420dpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="329814954962011"
+    timestamp="339166720717425"
     token="6513483472961473634"
-    verifier="COMPATIBLE" >
+    verifier="FIELD_REMOVED" >
 
     <task
         name="javac"
-        duration="188" />
+        duration="200" />
     <task
         name="instant-run-dex"
-        duration="607" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="24" />
+        duration="34" />
     <task
         name="verifier"
-        duration="3" />
+        duration="6" />
 
     <artifact
-        location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+        type="DEX" />
 
     <build
-        timestamp="329657202522738"
+        timestamp="337787115928213"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="329713410602249"
-        verifier="COMPATIBLE" >
+        timestamp="339166720717425"
+        verifier="FIELD_REMOVED" >
         <artifact
-            location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\builds\debug\329713410602249\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="329801949163425"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\builds\debug\329801949163425\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="329814954962011"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
+            location="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>
