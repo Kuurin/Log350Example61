@@ -48,6 +48,7 @@ class MyCursor {
 	public static final int TYPE_IGNORE = 2; // the finger should not be there and will be ignored
 	public int type = TYPE_IGNORE;
 
+	//testgit
 
 
 
