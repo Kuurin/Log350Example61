@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Lucas\AndroidStudioProjects\Log350Example61\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="f5ce7dde24c73699239803f218b814f7a91cfbb3">
-        <dex dex="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_5805ef11f96b789b731c46cd2c50913eb9a5373a\classes.dex" />
+        sha1="acb15c529f919e1ebbb086d852b6cf7f852e10cc">
+        <dex dex="C:\Users\Lucas\AndroidStudioProjects\Log350Example61\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_042f97f5cff0889c3de168bb361b4d1b87f62471\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Lucas\AndroidStudioProjects\Log350Example61\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="cedaaf483b44427aabc37b0db4807fb2eae0136b">
-        <dex dex="C:\Users\Owner\Documents\Vi\Study\GTI350-02\Log350Example61\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_afba3c6d2672cff0f5b9c35dfeb5d8fd4322f017\classes.dex" />
+        sha1="e8280bf4b0b5226a4c0dc69202ecc7ee30c82da0">
+        <dex dex="C:\Users\Lucas\AndroidStudioProjects\Log350Example61\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_e42c1ec5b8ceacc2e8291fe81efff81263771041\classes.dex" />
     </item>
 
 </items>

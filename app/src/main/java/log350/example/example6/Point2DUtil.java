@@ -372,10 +372,10 @@ public class Point2DUtil {
 	// Implementation based on Michel Beaudouin-Lafon http://doi.acm.org/10.1145/502348.502371
 	//
 	static public void transformPointsBasedOnDisplacementOfOnePoint(
-		ArrayList<Point2D> points,
-		// these should, of course, be in the same coordinate system as the points to transform
-		Point2D P_old,
-		Point2D P_new
+			ArrayList<Point2D> points,
+			// these should, of course, be in the same coordinate system as the points to transform
+			Point2D P_old,
+			Point2D P_new
 	) {
 		Point2D centroid = computeCentroidOfPoints( points );
 		Vector2D v1 = Point2D.diff( P_old, centroid );
@@ -383,8 +383,8 @@ public class Point2DUtil {
 		float rotationAngle = Vector2D.computeSignedAngle( v1, v2 );
 		float lengthToPreserve = v1.length();
 		Point2D newCentroid = Point2D.sum(
-			P_new,
-			Vector2D.mult( v2.normalized(), - lengthToPreserve )
+				P_new,
+				Vector2D.mult( v2.normalized(), - lengthToPreserve )
 		);
 		Vector2D translation = Point2D.diff( newCentroid, centroid );
 		float cosine = (float)Math.cos( rotationAngle );
@@ -395,6 +395,26 @@ public class Point2DUtil {
 			float relativeY = p.y() - centroid.y();
 			p.get()[0] = (cosine*relativeX - sine*relativeY) + translation.x() + centroid.x();
 			p.get()[1] = (sine*relativeX + cosine*relativeY) + translation.y() + centroid.y();
+		}
+	}
+
+
+	//This method translates the points of a shape
+	static public void translatePointsBasedOnDisplacementOfOnePoint(
+			ArrayList<Point2D> points,
+
+			Point2D P_old,
+			Point2D P_new
+	) {
+
+		float translationX=P_new.p[0]-P_old.p[0];
+		float translationY=P_new.p[1]-P_old.p[1];
+
+
+		for ( Point2D p : points ) {
+
+			p.get()[0] += translationX;
+			p.get()[1] += translationY;
 		}
 	}
 

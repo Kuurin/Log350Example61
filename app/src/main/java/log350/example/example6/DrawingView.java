@@ -181,6 +181,7 @@ public class DrawingView extends View {
 	static final int MODE_SHAPE_MANIPULATION = 2; // the user is translating/rotating/scaling a shape
 	static final int MODE_LASSO = 3; // the user is drawing a lasso to select shapes
 	static final int MODE_ERASE = 4; //the user may erase shapes
+	static final int MODE_SELECTION_MANIPULATION = 5; //the user is translating/rotating/scaling a selection of shapes
 	int currentMode = MODE_NEUTRAL;
 
 	// This is only used when currentMode==MODE_SHAPE_MANIPULATION, otherwise it is equal to -1
@@ -192,7 +193,7 @@ public class DrawingView extends View {
 	MyButton eraseButton = new MyButton( "Effacer", 10, 70+140+30, 140, 140 );
 	
 	OnTouchListener touchListener;
-	
+	Shape selectedShape=null;
 	public DrawingView(Context context) {
 		super(context);
 		
@@ -253,6 +254,8 @@ public class DrawingView extends View {
 
 			gw.setColor( 1.0f, 0.0f, 0.0f, 0.8f );
 			gw.fillPolygon( points );
+			//System.out.println("le polygone est dessine");
+			selectedShape= new Shape(points);
 		}
 
 		// draw all the shapes
@@ -364,6 +367,13 @@ public class DrawingView extends View {
 								currentMode = MODE_ERASE;
 								cursor.setType( MyCursor.TYPE_BUTTON );
 							}
+
+							else if(selectedShapes.size()>0 && Point2DUtil.isPointInsidePolygon(selectedShape.getPoints(),p_world)){
+								System.out.println("point dnas le polyggone");
+								currentMode= MODE_SELECTION_MANIPULATION;
+								cursor.setType( MyCursor.TYPE_DRAGGING );
+							}
+
 							else if ( indexOfShapeBeingManipulated >= 0 ) {
 								currentMode = MODE_SHAPE_MANIPULATION;
 								cursor.setType( MyCursor.TYPE_DRAGGING );
@@ -448,6 +458,43 @@ public class DrawingView extends View {
 							}
 						}
 						break;
+
+
+						case MODE_SELECTION_MANIPULATION :
+							if ( cursorContainer.getNumCursors() == 1 && type == MotionEvent.ACTION_MOVE && selectedShapes.size()>0 ) {
+								MyCursor cursor0 = cursorContainer.getCursorByIndex( 0 );
+
+
+
+
+								for(int i=0; i<selectedShapes.size();i++){
+
+									Shape shape = selectedShapes.get(i);
+
+									Point2DUtil.translatePointsBasedOnDisplacementOfOnePoint(
+											shape.getPoints(),
+											gw.convertPixelsToWorldSpaceUnits( cursor0.getPreviousPosition() ),
+											gw.convertPixelsToWorldSpaceUnits( cursor0.getCurrentPosition()	)
+
+
+									);
+
+
+
+								}
+
+
+
+							}
+							else if ( type == MotionEvent.ACTION_UP ) {
+								cursorContainer.removeCursorByIndex( cursorIndex );
+								if ( cursorContainer.getNumCursors() == 0 ) {
+									currentMode = MODE_NEUTRAL;
+									indexOfShapeBeingManipulated = -1;
+								}
+							}
+							break;
+
 
 						case MODE_ERASE :
 							if ( cursorContainer.getNumCursors() == 2 && type == MotionEvent.ACTION_DOWN) {

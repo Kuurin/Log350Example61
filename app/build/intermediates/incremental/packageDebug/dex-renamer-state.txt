@@ -1,7 +1,7 @@
-#Wed Oct 12 18:35:12 EDT 2016
-base.0=C\:\\Users\\Owner\\Documents\\Vi\\Study\\GTI350-02\\Log350Example61\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_afba3c6d2672cff0f5b9c35dfeb5d8fd4322f017
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=C\:\\Users\\Owner\\Documents\\Vi\\Study\\GTI350-02\\Log350Example61\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_5805ef11f96b789b731c46cd2c50913eb9a5373a\\classes.dex
-base.1=C\:\\Users\\Owner\\Documents\\Vi\\Study\\GTI350-02\\Log350Example61\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_5805ef11f96b789b731c46cd2c50913eb9a5373a
-file.0=C\:\\Users\\Owner\\Documents\\Vi\\Study\\GTI350-02\\Log350Example61\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_afba3c6d2672cff0f5b9c35dfeb5d8fd4322f017\\classes.dex
+#Fri Oct 14 17:46:48 EDT 2016
+base.0=C\:\\Users\\Lucas\\AndroidStudioProjects\\Log350Example61\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_e42c1ec5b8ceacc2e8291fe81efff81263771041
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\Lucas\\AndroidStudioProjects\\Log350Example61\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_042f97f5cff0889c3de168bb361b4d1b87f62471\\classes.dex
+base.1=C\:\\Users\\Lucas\\AndroidStudioProjects\\Log350Example61\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_042f97f5cff0889c3de168bb361b4d1b87f62471
+file.0=C\:\\Users\\Lucas\\AndroidStudioProjects\\Log350Example61\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_e42c1ec5b8ceacc2e8291fe81efff81263771041\\classes.dex
